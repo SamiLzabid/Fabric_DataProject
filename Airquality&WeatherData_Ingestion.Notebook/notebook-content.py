@@ -40,7 +40,7 @@ MAX_RETRIES        = 3
 
 HEADERS = {
     "Accept": "application/json",
-    "X-API-Key": "a18e517957969bf774284d74be4675806e146dd4547e26633e6af50516c5326a",
+    "X-API-Key": "",
 }
 
 
