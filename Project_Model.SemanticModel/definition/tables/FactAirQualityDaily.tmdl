@@ -1,0 +1,152 @@
+table FactAirQualityDaily
+	lineageTag: eafcac80-9f28-46f4-a4c3-b3b2ce39e0b4
+	sourceLineageTag: [dbo].[FactAirQualityDaily]
+
+	measure 'Avg NO2 Level' = ```
+			
+			CALCULATE(
+			    AVERAGE(FactAirQualityDaily[AvgValue]), 
+			    FactAirQualityDaily[Pollutant] = "no2"
+			)
+			```
+		formatString: 0.0000 ppm
+		lineageTag: 3307cd60-0a2e-43d6-820d-f36987e9d242
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Avg PM2.5 Level' = ```
+			
+			CALCULATE(
+			    AVERAGE(FactAirQualityDaily[AvgValue]), 
+			    FactAirQualityDaily[Pollutant] = "pm25"
+			)
+			```
+		formatString: 0.00 µg/m³
+		lineageTag: 02432448-4629-4762-b35b-27487cdce84b
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Avg O3 Level' = ```
+			
+			CALCULATE(
+			    AVERAGE(FactAirQualityDaily[AvgValue]), 
+			    FactAirQualityDaily[Pollutant] = "o3"
+			)
+			```
+		formatString: 0.0000 ppm
+		lineageTag: 82e473d9-5771-4ad9-8220-2d1782811a48
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column DateKey
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: caecf069-ee8e-4838-9598-26eace79cb74
+		sourceLineageTag: DateKey
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column timezone
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0cd1446b-354a-485f-9290-67624568c2c0
+		sourceLineageTag: timezone
+		summarizeBy: none
+		sourceColumn: timezone
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column locality
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8353f243-95d7-4a6e-bf01-342cbf17328a
+		sourceLineageTag: locality
+		summarizeBy: none
+		sourceColumn: locality
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column location_name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d858e59e-de6c-4e95-8d9e-0cbc9ce730e4
+		sourceLineageTag: location_name
+		summarizeBy: none
+		sourceColumn: location_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pollutant
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 21dd0eb4-8b0d-4ec1-ad68-933da5d259d3
+		sourceLineageTag: Pollutant
+		summarizeBy: none
+		sourceColumn: Pollutant
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column AvgValue
+		dataType: decimal
+		formatString: #,0.00
+		sourceProviderType: decimal(10, 2)
+		lineageTag: c216944b-b01c-4af9-8e5d-828639d1aaff
+		sourceLineageTag: AvgValue
+		summarizeBy: sum
+		sourceColumn: AvgValue
+
+		changedProperty = IsHidden
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReadingCount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6c0fe1e8-59a5-4556-8753-458823142b9c
+		sourceLineageTag: ReadingCount
+		summarizeBy: sum
+		sourceColumn: ReadingCount
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactAirQualityDaily = entity
+		mode: directLake
+		source
+			entityName: FactAirQualityDaily
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

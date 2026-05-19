@@ -1,0 +1,39 @@
+table DimGDP
+	lineageTag: fa41ccb0-4291-480d-8867-aeb4e1bce7f5
+	sourceLineageTag: [dbo].[DimGDP]
+
+	column YearKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0d9fa7df-18df-456e-a936-db5dd3dfbd4b
+		sourceLineageTag: YearKey
+		summarizeBy: none
+		sourceColumn: YearKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GDP_Value
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		sourceProviderType: decimal(18, 2)
+		lineageTag: 12517dd5-9d14-47ec-9e4e-3b42d2a3c0a4
+		sourceLineageTag: GDP_Value
+		summarizeBy: none
+		sourceColumn: GDP_Value
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition DimGDP = entity
+		mode: directLake
+		source
+			entityName: DimGDP
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

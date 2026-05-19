@@ -1,0 +1,50 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "DF_EconomicData",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "Query": {
+      "queryId": "6d7d06a8-c890-4ea3-84ce-8194e55910c3",
+      "queryName": "Query",
+      "loadEnabled": false
+    },
+    "Query_DataDestination": {
+      "queryId": "a87ec049-afbb-4acc-8d72-1bf137b17f29",
+      "queryName": "Query_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "D USD EUR SP00": {
+      "queryId": "98481fa7-a5d0-4ce9-821e-6d5a5743cf55",
+      "queryName": "D USD EUR SP00",
+      "loadEnabled": false
+    },
+    "D USD EUR SP00_DataDestination": {
+      "queryId": "ceea35d9-3518-4957-9fc9-1a8c45908150",
+      "queryName": "D USD EUR SP00_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "https://api.worldbank.org/v2/country/USA/indicator/NY.GDP.MKTP.CD?format=json",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"fc10d740-7fba-4209-af55-7b2362d88e1f\",\"DatasourceId\":\"5af051ed-209d-46be-bb70-6cacc8a08fd6\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"fc10d740-7fba-4209-af55-7b2362d88e1f\",\"DatasourceId\":\"6a5a83cc-ba38-4ca6-b846-701a6a5a88ca\"}"
+    },
+    {
+      "path": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"fc10d740-7fba-4209-af55-7b2362d88e1f\",\"DatasourceId\":\"016b40f3-bb1c-4d30-bf65-cf639c7eb255\"}"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+table DimZone
+	lineageTag: 35bebeae-a461-4a3c-b947-a26093cf19cc
+	sourceLineageTag: [dbo].[DimZone]
+
+	column StandardZone
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5fba71fe-e3cb-4e38-be70-e0c450895b60
+		sourceLineageTag: StandardZone
+		summarizeBy: none
+		sourceColumn: StandardZone
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceType
+		dataType: string
+		sourceProviderType: varchar(7)
+		lineageTag: e36d17cf-5314-4593-9fe2-08db2e52235a
+		sourceLineageTag: SourceType
+		summarizeBy: none
+		sourceColumn: SourceType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimZone = entity
+		mode: directLake
+		source
+			entityName: DimZone
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

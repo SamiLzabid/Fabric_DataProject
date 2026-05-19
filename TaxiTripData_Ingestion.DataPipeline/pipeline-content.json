@@ -1,0 +1,111 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "ForEach",
+        "typeProperties": {
+          "items": {
+            "value": "@pipeline().parameters.Months",
+            "type": "Expression"
+          },
+          "activities": [
+            {
+              "type": "Copy",
+              "typeProperties": {
+                "source": {
+                  "type": "BinarySource",
+                  "formatSettings": {
+                    "type": "BinaryReadSettings"
+                  },
+                  "storeSettings": {
+                    "type": "HttpReadSettings",
+                    "requestMethod": "GET"
+                  },
+                  "datasetSettings": {
+                    "type": "Binary",
+                    "typeProperties": {
+                      "location": {
+                        "type": "HttpServerLocation",
+                        "relativeUrl": {
+                          "value": "trip-data/yellow_tripdata_@{pipeline().parameters.TargetYear}-@{item()}.parquet",
+                          "type": "Expression"
+                        }
+                      }
+                    },
+                    "externalReferences": {
+                      "connection": "a56b5dcf-11a1-4488-8cdd-1742c1bd00d7"
+                    },
+                    "annotations": []
+                  }
+                },
+                "sink": {
+                  "type": "BinarySink",
+                  "storeSettings": {
+                    "type": "AzureBlobStorageWriteSettings"
+                  },
+                  "datasetSettings": {
+                    "type": "Binary",
+                    "typeProperties": {
+                      "location": {
+                        "type": "LakehouseLocation",
+                        "folderPath": "NYC_Taxi"
+                      }
+                    },
+                    "linkedService": {
+                      "name": "LH_bronze",
+                      "properties": {
+                        "type": "Lakehouse",
+                        "typeProperties": {
+                          "artifactId": "5e7ef384-b8b1-906c-4a98-597c5415b106",
+                          "workspaceId": "00000000-0000-0000-0000-000000000000",
+                          "rootFolder": "Files"
+                        },
+                        "annotations": []
+                      }
+                    },
+                    "annotations": []
+                  }
+                },
+                "enableStaging": false
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "Copy Taxi Trip Data",
+              "dependsOn": []
+            }
+          ]
+        },
+        "name": "For All Files",
+        "dependsOn": []
+      }
+    ],
+    "parameters": {
+      "TargetYear": {
+        "type": "string",
+        "defaultValue": "2025"
+      },
+      "Months": {
+        "type": "array",
+        "defaultValue": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12"
+        ]
+      }
+    }
+  }
+}

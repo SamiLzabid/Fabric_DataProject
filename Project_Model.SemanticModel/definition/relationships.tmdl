@@ -1,0 +1,24 @@
+relationship fcbd71eb-3d81-a057-c738-cce505d0d7e8
+	fromColumn: FactTaxiDaily.DateKey
+	toColumn: DimDate.DateKey
+
+relationship c06847a5-eaa5-112e-ea7d-860c9b7829cb
+	fromColumn: FactTaxiDaily.DateKey
+	toColumn: DimFX.DateKey
+
+relationship e6c08bc5-719b-2c05-c5b4-656695116db4
+	fromColumn: FactTaxiDaily.pickup_zone
+	toColumn: DimZone.StandardZone
+
+relationship 9ac36873-348f-0199-2883-2fc403989bfc
+	fromColumn: FactAirQualityDaily.DateKey
+	toColumn: DimDate.DateKey
+
+relationship bb2c4d55-292e-3f87-db8a-465534a49b88
+	fromColumn: DimDate.YearKey
+	toColumn: DimGDP.YearKey
+
+relationship 0892ae40-c9ee-9574-80b0-091b0747076f
+	fromColumn: FactAirQualityDaily.locality
+	toColumn: DimZone.StandardZone
+

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Environment",
+    "displayName": "timescaledb-client",
+    "description": "Environment"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "06ef6ce1-c33f-9930-4509-e3d404ac5b69"
+  }
+}

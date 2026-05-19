@@ -1,0 +1,231 @@
+{
+  "config": "{\"version\":\"5.73\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY26SU05\",\"type\":2,\"version\":{\"visual\":\"2.9.0\",\"report\":\"3.3.0\",\"page\":\"2.3.1\"}}},\"activeSectionIndex\":2,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY26SU05",
+            "path": "BaseThemes/CY26SU05.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 4",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "1fdf02c332065eda45da",
+      "ordinal": 3,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"1c5f7a2a066357887ad7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":543.5753317720531,\"y\":128.8992974238876,\"z\":1000,\"width\":736.424668227947,\"height\":264.79313036690087,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"lineClusteredColumnComboChart\",\"projections\":{\"Category\":[{\"queryRef\":\"DimDate.MonthNumber\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(FactTaxiDaily.TotalRevenue)\"}],\"Y2\":[{\"queryRef\":\"FactAirQualityDaily.Avg PM2.5 Level\"}],\"Series\":[{\"queryRef\":\"DimDate.YearKey\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0},{\"Name\":\"f1\",\"Entity\":\"FactAirQualityDaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"MonthNumber\"},\"Name\":\"DimDate.MonthNumber\",\"NativeReferenceName\":\"MonthNumber\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalRevenue\"}},\"Function\":0},\"Name\":\"Sum(FactTaxiDaily.TotalRevenue)\",\"NativeReferenceName\":\"Sum of TotalRevenue\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f1\"}},\"Property\":\"Avg PM2.5 Level\"},\"Name\":\"FactAirQualityDaily.Avg PM2.5 Level\",\"NativeReferenceName\":\"Avg PM2.5 Level\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"YearKey\"},\"Name\":\"DimDate.YearKey\",\"NativeReferenceName\":\"YearKey\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalRevenue\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[{\"name\":\"e282b6b4d19f6cc1e548\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"FactAirQualityDaily\"}},\"Property\":\"timezone\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FactAirQualityDaily\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"timezone\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'New_York'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{}}]}}]",
+          "height": 264.79,
+          "width": 736.42,
+          "x": 543.58,
+          "y": 128.90,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"2dc21a5ce0c0457804f3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":543.5753317720531,\"y\":0,\"z\":3000,\"width\":736.424668227947,\"height\":128.8992974238876,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"FactTaxiDaily.Total Revenue EUR\"},{\"queryRef\":\"Sum(FactTaxiDaily.TotalRevenue)\"},{\"queryRef\":\"CountNonNull(DimFX.ExchangeRate)\"},{\"queryRef\":\"CountNonNull(DimFX.ExchangeRate)1\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimFX\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue EUR\"},\"Name\":\"FactTaxiDaily.Total Revenue EUR\",\"NativeReferenceName\":\"Total Revenue EUR\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalRevenue\"}},\"Function\":0},\"Name\":\"Sum(FactTaxiDaily.TotalRevenue)\",\"NativeReferenceName\":\"Sum of TotalRevenue\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"ExchangeRate\"}},\"Function\":4},\"Name\":\"CountNonNull(DimFX.ExchangeRate)\",\"NativeReferenceName\":\"Max of ExchangeRate\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"ExchangeRate\"}},\"Function\":3},\"Name\":\"CountNonNull(DimFX.ExchangeRate)1\",\"NativeReferenceName\":\"Min of ExchangeRate\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue EUR\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 128.90,
+          "width": 736.42,
+          "x": 543.58,
+          "y": 0.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"7c3518fd7812d1a2bc44\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":393.6924277907885,\"z\":2000,\"width\":1280,\"height\":326.74473067915693,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"DimDate.MonthName\",\"active\":true},{\"queryRef\":\"DimDate.YearKey\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(FactTaxiDaily.TotalRevenue)\"}],\"Y2\":[{\"queryRef\":\"FactTaxiDaily.Total Revenue EUR\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"MonthName\"},\"Name\":\"DimDate.MonthName\",\"NativeReferenceName\":\"MonthName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"YearKey\"},\"Name\":\"DimDate.YearKey\",\"NativeReferenceName\":\"YearKey\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalRevenue\"}},\"Function\":0},\"Name\":\"Sum(FactTaxiDaily.TotalRevenue)\",\"NativeReferenceName\":\"Sum of TotalRevenue\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue EUR\"},\"Name\":\"FactTaxiDaily.Total Revenue EUR\",\"NativeReferenceName\":\"Total Revenue EUR\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"MonthName\"}}},{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"YearKey\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 326.74,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 393.69,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"9d969404993b3a19d2e3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.992193598750976,\"y\":0,\"z\":0,\"width\":533.5831381733021,\"height\":393.6924277907885,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"areaChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(FactTaxiDaily.TotalRevenue)\"}],\"Y2\":[{\"queryRef\":\"CountNonNull(DimGDP.GDP_Value)\"}],\"Category\":[{\"queryRef\":\"DimGDP.YearKey\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"DimGDP\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalRevenue\"}},\"Function\":0},\"Name\":\"Sum(FactTaxiDaily.TotalRevenue)\",\"NativeReferenceName\":\"Sum of TotalRevenue\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"GDP_Value\"}},\"Function\":0},\"Name\":\"CountNonNull(DimGDP.GDP_Value)\",\"NativeReferenceName\":\"Sum of GDP_Value\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"YearKey\"},\"Name\":\"DimGDP.YearKey\",\"NativeReferenceName\":\"YearKey\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalRevenue\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[{\"name\":\"652ee74ae1f66b7fe4d5\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimGDP\"}},\"Property\":\"YearKey\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimGDP\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"YearKey\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2021L\"}}],[{\"Literal\":{\"Value\":\"2022L\"}}],[{\"Literal\":{\"Value\":\"2023L\"}}],[{\"Literal\":{\"Value\":\"2024L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{},\"isHiddenInViewMode\":false}]",
+          "height": 393.69,
+          "width": 533.58,
+          "x": 9.99,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Page 3",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"ca8d2cc28a6f700cbf67\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"FactAirQualityDaily\"}},\"Property\":\"timezone\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FactAirQualityDaily\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"timezone\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'New_York'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "917271f58db7d8db07e4",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"1fe5eeba50681deed225\",\"layouts\":[{\"id\":0,\"position\":{\"x\":729.4301327088212,\"y\":0,\"z\":2000,\"width\":550.5698672911788,\"height\":326.74473067915693,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"scatterChart\",\"projections\":{\"Category\":[{\"queryRef\":\"DimZone.StandardZone\",\"active\":true}],\"X\":[{\"queryRef\":\"FactAirQualityDaily.Avg PM2.5 Level\",\"active\":true}],\"Y\":[{\"queryRef\":\"Avg(FactTaxiDaily.TotalTrips)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimZone\",\"Type\":0},{\"Name\":\"f1\",\"Entity\":\"FactAirQualityDaily\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"StandardZone\"},\"Name\":\"DimZone.StandardZone\",\"NativeReferenceName\":\"StandardZone\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f1\"}},\"Property\":\"Avg PM2.5 Level\"},\"Name\":\"FactAirQualityDaily.Avg PM2.5 Level\",\"NativeReferenceName\":\"Avg PM2.5 Level\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalTrips\"}},\"Function\":1},\"Name\":\"Avg(FactTaxiDaily.TotalTrips)\",\"NativeReferenceName\":\"Average of TotalTrips\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"trend\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"displayName\":{\"expr\":{\"Literal\":{\"Value\":\"'Trend line 1'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"9237d8f2d99425c217b2\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimZone\"}},\"Property\":\"StandardZone\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimZone\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"StandardZone\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'UNKNOWN'\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 326.74,
+          "width": 550.57,
+          "x": 729.43,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"675b5e9773c971e58f6a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1000,\"width\":729.4301327088212,\"height\":326.74473067915693,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Y2\":[{\"queryRef\":\"FactAirQualityDaily.Avg NO2 Level\"}],\"Y\":[{\"queryRef\":\"Sum(FactTaxiDaily.AvgTripDistance)\"}],\"Category\":[{\"queryRef\":\"DimDate.DayName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f1\",\"Entity\":\"FactAirQualityDaily\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f1\"}},\"Property\":\"Avg NO2 Level\"},\"Name\":\"FactAirQualityDaily.Avg NO2 Level\",\"NativeReferenceName\":\"Avg NO2 Level\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"DayName\"},\"Name\":\"DimDate.DayName\",\"NativeReferenceName\":\"DayName\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"AvgTripDistance\"}},\"Function\":1},\"Name\":\"Sum(FactTaxiDaily.AvgTripDistance)\",\"NativeReferenceName\":\"Average of AvgTripDistance\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"AvgTripDistance\"}},\"Function\":1}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 326.74,
+          "width": 729.43,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"d60dc0435a0c7f6de79e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":365.7142857142857,\"z\":0,\"width\":1280,\"height\":354.72287275565964,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"lineClusteredColumnComboChart\",\"projections\":{\"Category\":[{\"queryRef\":\"DimDate.MonthName\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(FactTaxiDaily.TotalTrips)\"}],\"Y2\":[{\"queryRef\":\"FactAirQualityDaily.Avg PM2.5 Level\"}],\"Series\":[{\"queryRef\":\"DimDate.YearKey\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0},{\"Name\":\"f1\",\"Entity\":\"FactAirQualityDaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"MonthName\"},\"Name\":\"DimDate.MonthName\",\"NativeReferenceName\":\"MonthName\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalTrips\"}},\"Function\":1},\"Name\":\"Sum(FactTaxiDaily.TotalTrips)\",\"NativeReferenceName\":\"Average of TotalTrips\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f1\"}},\"Property\":\"Avg PM2.5 Level\"},\"Name\":\"FactAirQualityDaily.Avg PM2.5 Level\",\"NativeReferenceName\":\"Avg PM2.5 Level\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"YearKey\"},\"Name\":\"DimDate.YearKey\",\"NativeReferenceName\":\"YearKey\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalTrips\"}},\"Function\":1}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 354.72,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 365.71,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Page 2",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"14b324085253e6f654c7\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"FactAirQualityDaily\"}},\"Property\":\"locality\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FactAirQualityDaily\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"locality\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'FS1 - FOREST SERVICE'\"}}],[{\"Literal\":{\"Value\":\"'SUMMIT'\"}}],[{\"Literal\":{\"Value\":\"'AIR'\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}]",
+      "height": 720.00,
+      "name": "91fdbb3a9734acbe152e",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"61c309601e28698a6a08\",\"layouts\":[{\"id\":0,\"position\":{\"x\":218.82903981264639,\"y\":0,\"z\":0,\"width\":1061.1709601873538,\"height\":105.91725214676035,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"FactAirQualityDaily.Avg PM2.5 Level\"},{\"queryRef\":\"FactAirQualityDaily.Avg O3 Level\"},{\"queryRef\":\"FactAirQualityDaily.Avg NO2 Level\"},{\"queryRef\":\"Sum(FactAirQualityDaily.ReadingCount)\"},{\"queryRef\":\"Min(FactAirQualityDaily.timezone)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FactAirQualityDaily\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg PM2.5 Level\"},\"Name\":\"FactAirQualityDaily.Avg PM2.5 Level\",\"NativeReferenceName\":\"Avg PM2.5 Level\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg O3 Level\"},\"Name\":\"FactAirQualityDaily.Avg O3 Level\",\"NativeReferenceName\":\"Avg O3 Level\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg NO2 Level\"},\"Name\":\"FactAirQualityDaily.Avg NO2 Level\",\"NativeReferenceName\":\"Avg NO2 Level\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"ReadingCount\"}},\"Function\":0},\"Name\":\"Sum(FactAirQualityDaily.ReadingCount)\",\"NativeReferenceName\":\"Sum of ReadingCount\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"timezone\"}},\"Function\":2},\"Name\":\"Min(FactAirQualityDaily.timezone)\",\"NativeReferenceName\":\"Count of timezone\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg PM2.5 Level\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 105.92,
+          "width": 1061.17,
+          "x": 218.83,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"beb3defea3412556157b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":105.91725214676035,\"z\":2000,\"width\":1280,\"height\":311.75644028103045,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Y\":[{\"queryRef\":\"FactAirQualityDaily.Avg PM2.5 Level\"}],\"Category\":[{\"queryRef\":\"DimDate.DateKey\",\"active\":true}],\"Y2\":[{\"queryRef\":\"FactAirQualityDaily.Avg O3 Level\"},{\"queryRef\":\"FactAirQualityDaily.Avg NO2 Level\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FactAirQualityDaily\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg PM2.5 Level\"},\"Name\":\"FactAirQualityDaily.Avg PM2.5 Level\",\"NativeReferenceName\":\"Avg PM2.5 Level\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"DateKey\"},\"Name\":\"DimDate.DateKey\",\"NativeReferenceName\":\"DateKey\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg NO2 Level\"},\"Name\":\"FactAirQualityDaily.Avg NO2 Level\",\"NativeReferenceName\":\"Avg NO2 Level\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg O3 Level\"},\"Name\":\"FactAirQualityDaily.Avg O3 Level\",\"NativeReferenceName\":\"Avg O3 Level\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"DateKey\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 311.76,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 105.92,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"c3b4d233b0c6c437a32a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":631.5066354410617,\"y\":417.6736924277908,\"z\":4000,\"width\":648.4933645589383,\"height\":302.76346604215456,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"DimDate.MonthName\",\"active\":true}],\"Series\":[{\"queryRef\":\"DimDate.YearKey\"}],\"Y\":[{\"queryRef\":\"FactAirQualityDaily.Avg NO2 Level\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"FactAirQualityDaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"MonthName\"},\"Name\":\"DimDate.MonthName\",\"NativeReferenceName\":\"MonthName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"YearKey\"},\"Name\":\"DimDate.YearKey\",\"NativeReferenceName\":\"YearKey\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg NO2 Level\"},\"Name\":\"FactAirQualityDaily.Avg NO2 Level\",\"NativeReferenceName\":\"Avg NO2 Level\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg NO2 Level\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 302.76,
+          "width": 648.49,
+          "x": 631.51,
+          "y": 417.67,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"f1e14f41f9ae02ccd031\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":417.6736924277908,\"z\":3000,\"width\":631.5066354410617,\"height\":302.76346604215456,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Category\":[{\"queryRef\":\"FactAirQualityDaily.locality\",\"active\":true}],\"Y\":[{\"queryRef\":\"FactAirQualityDaily.Avg PM2.5 Level\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FactAirQualityDaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"locality\"},\"Name\":\"FactAirQualityDaily.locality\",\"NativeReferenceName\":\"locality\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg PM2.5 Level\"},\"Name\":\"FactAirQualityDaily.Avg PM2.5 Level\",\"NativeReferenceName\":\"Avg PM2.5 Level\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg PM2.5 Level\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[{\"name\":\"055b9992cc9964afb64e\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"FactAirQualityDaily\"}},\"Property\":\"locality\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"subquery\",\"Expression\":{\"Subquery\":{\"Query\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FactAirQualityDaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"locality\"},\"Name\":\"field\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Avg PM2.5 Level\"}}}],\"Top\":10}}},\"Type\":2},{\"Name\":\"f\",\"Entity\":\"FactAirQualityDaily\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"locality\"}}],\"Table\":{\"SourceRef\":{\"Source\":\"subquery\"}}}}}]},\"type\":\"TopN\",\"howCreated\":0,\"objects\":{\"general\":[{\"properties\":{}}]},\"isHiddenInViewMode\":false}]",
+          "height": 302.76,
+          "width": 631.51,
+          "x": 0.00,
+          "y": 417.67,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"f43e052bfff942d77bc5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1000,\"width\":218.82903981264639,\"height\":105.91725214676035,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"DimDate.DateKey\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"DateKey\"},\"Name\":\"DimDate.DateKey\",\"NativeReferenceName\":\"DateKey\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"DateKey\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 105.92,
+          "width": 218.83,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "9983ffafa30fbb3b2acd",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"1b3e089860f903b20b36\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":136.89305230288838,\"z\":2000,\"width\":785.3864168618268,\"height\":259.7970335675254,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"DimDate.DateKey\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(FactTaxiDaily.TotalTrips)\"}],\"Series\":[{\"queryRef\":\"DimDate.DayName\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"DateKey\"},\"Name\":\"DimDate.DateKey\",\"NativeReferenceName\":\"DateKey\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalTrips\"}},\"Function\":0},\"Name\":\"Sum(FactTaxiDaily.TotalTrips)\",\"NativeReferenceName\":\"Sum of TotalTrips\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"DayName\"},\"Name\":\"DimDate.DayName\",\"NativeReferenceName\":\"DayName\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"DateKey\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 259.80,
+          "width": 785.39,
+          "x": 0.00,
+          "y": 136.89,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"baede60ba08edada1cea\",\"layouts\":[{\"id\":0,\"position\":{\"x\":290.77283372365343,\"y\":0,\"z\":0,\"width\":989.2271662763467,\"height\":136.89305230288838,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Sum(FactTaxiDaily.TotalRevenue)\"},{\"queryRef\":\"Sum(FactTaxiDaily.TotalTrips)\"},{\"queryRef\":\"Sum(FactTaxiDaily.AvgTripDuration)\"},{\"queryRef\":\"Sum(FactTaxiDaily.AvgFare)\"},{\"queryRef\":\"Sum(FactTaxiDaily.AvgTripDistance)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalRevenue\"}},\"Function\":0},\"Name\":\"Sum(FactTaxiDaily.TotalRevenue)\",\"NativeReferenceName\":\"Sum of TotalRevenue\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalTrips\"}},\"Function\":0},\"Name\":\"Sum(FactTaxiDaily.TotalTrips)\",\"NativeReferenceName\":\"Sum of TotalTrips\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"AvgTripDuration\"}},\"Function\":1},\"Name\":\"Sum(FactTaxiDaily.AvgTripDuration)\",\"NativeReferenceName\":\"Average of AvgTripDuration\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"AvgFare\"}},\"Function\":1},\"Name\":\"Sum(FactTaxiDaily.AvgFare)\",\"NativeReferenceName\":\"Average of AvgFare\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"AvgTripDistance\"}},\"Function\":1},\"Name\":\"Sum(FactTaxiDaily.AvgTripDistance)\",\"NativeReferenceName\":\"Average of AvgTripDistance\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalRevenue\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 136.89,
+          "width": 989.23,
+          "x": 290.77,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"c7884571ea40d0826e25\",\"layouts\":[{\"id\":0,\"position\":{\"x\":802.3731459797034,\"y\":118.90710382513662,\"z\":5000,\"width\":477.62685402029666,\"height\":277.78298204527715,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"ribbonChart\",\"projections\":{\"Category\":[{\"queryRef\":\"FactTaxiDaily.HourOfDay\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(FactTaxiDaily.TotalTrips)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"HourOfDay\"},\"Name\":\"FactTaxiDaily.HourOfDay\",\"NativeReferenceName\":\"HourOfDay\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalTrips\"}},\"Function\":0},\"Name\":\"Sum(FactTaxiDaily.TotalTrips)\",\"NativeReferenceName\":\"Sum of TotalTrips\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalTrips\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 277.78,
+          "width": 477.63,
+          "x": 802.37,
+          "y": 118.91,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"d1e0f8a6b3122bc8adb5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":396.6900858704138,\"z\":3000,\"width\":640.4996096799375,\"height\":323.74707259953163,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Category\":[{\"queryRef\":\"FactTaxiDaily.pickup_zone\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(FactTaxiDaily.TotalTrips)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"pickup_zone\"},\"Name\":\"FactTaxiDaily.pickup_zone\",\"NativeReferenceName\":\"pickup_zone\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalTrips\"}},\"Function\":0},\"Name\":\"Sum(FactTaxiDaily.TotalTrips)\",\"NativeReferenceName\":\"Sum of TotalTrips\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalTrips\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"FactTaxiDaily\"}},\"Property\":\"pickup_zone\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"subquery\",\"Expression\":{\"Subquery\":{\"Query\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"pickup_zone\"},\"Name\":\"field\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"TotalTrips\"}},\"Function\":0}}}],\"Top\":10}}},\"Type\":2},{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"pickup_zone\"}}],\"Table\":{\"SourceRef\":{\"Source\":\"subquery\"}}}}}]},\"type\":\"TopN\",\"howCreated\":0,\"isHiddenInViewMode\":false}]",
+          "height": 323.75,
+          "width": 640.50,
+          "x": 0.00,
+          "y": 396.69,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"d8054c39de6450b8c04b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1000,\"width\":290.77283372365343,\"height\":118.90710382513662,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"DimDate.DateKey\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"DateKey\"},\"Name\":\"DimDate.DateKey\",\"NativeReferenceName\":\"DateKey\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"DateKey\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 118.91,
+          "width": 290.77,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"defb5cd5d5976c54553b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":684.4652615144419,\"y\":396.6900858704138,\"z\":4000,\"width\":595.5347384855581,\"height\":323.74707259953163,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"areaChart\",\"projections\":{\"Category\":[{\"queryRef\":\"DimDate.MonthNumber\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(FactTaxiDaily.AvgTripDuration)\"}],\"Y2\":[{\"queryRef\":\"Sum(FactTaxiDaily.AvgTripDistance)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"FactTaxiDaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"MonthNumber\"},\"Name\":\"DimDate.MonthNumber\",\"NativeReferenceName\":\"MonthNumber\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"AvgTripDuration\"}},\"Function\":0},\"Name\":\"Sum(FactTaxiDaily.AvgTripDuration)\",\"NativeReferenceName\":\"Sum of AvgTripDuration\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"AvgTripDistance\"}},\"Function\":0},\"Name\":\"Sum(FactTaxiDaily.AvgTripDistance)\",\"NativeReferenceName\":\"Sum of AvgTripDistance\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"AvgTripDuration\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 323.75,
+          "width": 595.53,
+          "x": 684.47,
+          "y": 396.69,
+          "z": 4000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

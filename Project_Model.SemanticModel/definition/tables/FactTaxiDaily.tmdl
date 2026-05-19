@@ -1,0 +1,130 @@
+table FactTaxiDaily
+	lineageTag: f21c40f8-669a-46fb-ba81-71224c3faf9f
+	sourceLineageTag: [dbo].[FactTaxiDaily]
+
+	measure 'Total Revenue EUR' = ```
+			
+			SUMX(
+			    FactTaxiDaily, 
+			    FactTaxiDaily[TotalRevenue] * RELATED(DimFX[ExchangeRate])
+			)
+			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 34c96bc5-1e34-486a-9959-c1833722ecba
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	column DateKey
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 482ec1d6-2cf9-4407-b4a3-927cb9d57faa
+		sourceLineageTag: DateKey
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column HourOfDay
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 118b09cb-125a-483f-9916-b5b2c0c7d95c
+		sourceLineageTag: HourOfDay
+		summarizeBy: sum
+		sourceColumn: HourOfDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column pickup_zone
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 572be83e-6404-4259-8630-bffdc0e876b1
+		sourceLineageTag: pickup_zone
+		summarizeBy: none
+		sourceColumn: pickup_zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalTrips
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: be17a84e-2cc8-47e3-8106-02730e58169c
+		sourceLineageTag: TotalTrips
+		summarizeBy: sum
+		sourceColumn: TotalTrips
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalRevenue
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		sourceProviderType: decimal(18, 2)
+		lineageTag: 7c0954f8-f026-4fc0-9f21-32538209655e
+		sourceLineageTag: TotalRevenue
+		summarizeBy: sum
+		sourceColumn: TotalRevenue
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column AvgFare
+		dataType: decimal
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		sourceProviderType: decimal(10, 2)
+		lineageTag: 9caaeebc-074f-4a17-a68f-7d86f630ef5c
+		sourceLineageTag: AvgFare
+		summarizeBy: sum
+		sourceColumn: AvgFare
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column AvgTripDistance
+		dataType: decimal
+		formatString: 0.00 mi
+		sourceProviderType: decimal(10, 2)
+		lineageTag: 5a3e61f9-7cf7-45ec-9650-d60c3656c342
+		sourceLineageTag: AvgTripDistance
+		summarizeBy: sum
+		sourceColumn: AvgTripDistance
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column AvgTripDuration
+		dataType: decimal
+		formatString: 0.00 Mins
+		sourceProviderType: decimal(10, 2)
+		lineageTag: 5a1a2ec5-cdd6-48cf-b474-511c0b6e78c7
+		sourceLineageTag: AvgTripDuration
+		summarizeBy: sum
+		sourceColumn: AvgTripDuration
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	partition FactTaxiDaily = entity
+		mode: directLake
+		source
+			entityName: FactTaxiDaily
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
