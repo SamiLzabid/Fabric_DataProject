@@ -22,7 +22,6 @@
 
 # CELL ********************
 
-from pyspark.sql.functions import *
 import requests
 import pandas as pd
 import time

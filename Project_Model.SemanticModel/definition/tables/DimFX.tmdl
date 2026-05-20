@@ -15,7 +15,7 @@ table DimFX
 
 	column ExchangeRate
 		dataType: decimal
-		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		formatString: "€"\ #,0.0000;-"€"\ #,0.0000;"€"\ #,0.0000
 		sourceProviderType: decimal(18, 4)
 		lineageTag: a504b4db-cda3-4b8e-bfa5-662ad060f6ad
 		sourceLineageTag: ExchangeRate
