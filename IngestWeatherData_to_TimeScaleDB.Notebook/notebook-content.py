@@ -33,7 +33,6 @@ import pandas as pd
 TIMESCALE_CONN = "postgres://tsdbadmin:Z4BiD_tiger007@hqy6qzinbi.lc7gkwv51k.tsdb.cloud.timescale.com:32067/tsdb?sslmode=require"
 
 def get_connection():
-    """Always create a fresh connection — Fabric sessions can be long-lived."""
     return psycopg2.connect(TIMESCALE_CONN, sslmode="require") 
 
 

@@ -53,10 +53,7 @@ DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1503774267341279436/cMH3
 # CELL ********************
 
 def send_discord_report(results: dict, suite_name: str = "Weather Data Quality"):
-    """
-    Sends a formatted quality report to Discord.
-    Handles field limits and character caps safely to prevent HTTP 400 errors.
-    """
+
     total        = results["total_expectations"]
     passed       = results["passed"]
     failed       = results["failed"]
@@ -65,7 +62,6 @@ def send_discord_report(results: dict, suite_name: str = "Weather Data Quality")
 
     webhook = DiscordWebhook(url=DISCORD_WEBHOOK_URL, username="Fabric QA Bot")
 
-    # ── Header embed ──────────────────────────────────────────────
     header = DiscordEmbed(
         title=f"{'✅' if all_passed else '❌'} {suite_name} Report",
         description=f"Validation run at `{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}`",
@@ -75,25 +71,21 @@ def send_discord_report(results: dict, suite_name: str = "Weather Data Quality")
     header.add_embed_field(name="✅ Passed",        value=str(passed), inline=True)
     header.add_embed_field(name="❌ Failed",        value=str(failed), inline=True)
     header.add_embed_field(name="Success Rate",    value=f"{success_rate:.1f}%", inline=False)
-    
-    # FIX: Dynamically assign footer text based on the running suite
+
     header.set_footer(text=f"Great Expectations • {suite_name}")
     webhook.add_embed(header)
 
-    # ── Failed checks detail embed ────────────────────────────────
     if not all_passed:
         fail_embed = DiscordEmbed(
             title="⚠️ Failed Checks Detail",
             color="ff0000"
         )
-        
-        # FIX: Guard against Discord's 25-field limit per embed
+
         max_visible_failures = 15
         recorded_failures = results["failures"]
         
         for idx, failure in enumerate(recorded_failures):
             if idx < max_visible_failures:
-                # Truncate text block if an individual detail string exceeds 900 characters
                 detail_text = failure['detail']
                 if len(detail_text) > 900:
                     detail_text = detail_text[:900] + "... [Truncated]"
@@ -104,7 +96,6 @@ def send_discord_report(results: dict, suite_name: str = "Weather Data Quality")
                     inline=False
                 )
             else:
-                # Aggregate remaining exceptions to prevent an HTTP 400 crash
                 remaining_count = len(recorded_failures) - max_visible_failures
                 fail_embed.add_embed_field(
                     name="⚠️ Overflow Alert",
@@ -115,7 +106,6 @@ def send_discord_report(results: dict, suite_name: str = "Weather Data Quality")
                 
         webhook.add_embed(fail_embed)
 
-    # ── Stats summary embed ───────────────────────────────────────
     if results.get("stats"):
         stats_embed = DiscordEmbed(title="📊 Dataset Statistics", color="5865f2")
         for stat_name, stat_val in results["stats"].items():
@@ -131,6 +121,10 @@ def send_discord_report(results: dict, suite_name: str = "Weather Data Quality")
 # META   "language": "python",
 # META   "language_group": "synapse_pyspark"
 # META }
+
+# MARKDOWN ********************
+
+# **Taxi Trip Data Report**
 
 # CELL ********************
 
@@ -155,15 +149,12 @@ def check_taxi_quality(df: pd.DataFrame) -> dict:
 
     print(f"📊 Running checks on {len(df):,} Taxi Trip rows...")
 
-    # 1. Null Checks (Dynamically targets ALL columns)
     total_nulls = 0
     for col in df.columns:
         result = gx_df.expect_column_values_to_not_be_null(col)
         null_count = int(df[col].isnull().sum())
         total_nulls += null_count
         check(result, f"No Nulls → {col}", f"Found {null_count} null rows")
-
-    # 2. Negative/Zero Anomaly Checks (Strictly > 0)
 
     if "total_amount" in df.columns:
         # strict_min=True forces the check to be strictly > 0 (failing anything <= 0)
@@ -255,6 +246,10 @@ taxi_res = check_taxi_quality(taxi_pdf)
 # META   "language": "python",
 # META   "language_group": "synapse_pyspark"
 # META }
+
+# MARKDOWN ********************
+
+# **Air Quality Data Report**
 
 # CELL ********************
 
@@ -363,6 +358,10 @@ air_res = check_airquality_quality(air_pdf)
 # META   "language_group": "synapse_pyspark"
 # META }
 
+# MARKDOWN ********************
+
+# **Daily FX Data Report**
+
 # CELL ********************
 
 def check_fx_quality(df: pd.DataFrame) -> dict:
@@ -441,6 +440,10 @@ FX_res = check_fx_quality(FX_pdf)
 # META   "language": "python",
 # META   "language_group": "synapse_pyspark"
 # META }
+
+# MARKDOWN ********************
+
+# **GDP Data Report**
 
 # CELL ********************
 
@@ -523,14 +526,14 @@ GDP_res = check_gdp_quality(GDP_pdf)
 # META   "language_group": "synapse_pyspark"
 # META }
 
+# MARKDOWN ********************
+
+# **Weather Data Report**
+
 # CELL ********************
 
 def check_weather_quality(df: pd.DataFrame) -> dict:
-    """
-    Runs all Great Expectations checks on the weather DataFrame using updated column names.
-    Extracts only the date component to completely bypass DST and timezone errors.
-    Returns a structured results dict and dispatches an alert to Discord.
-    """
+
     gx_df   = gx.dataset.PandasDataset(df)
     results = {
         "total_expectations": 0,
@@ -726,16 +729,6 @@ def check_weather_quality(df: pd.DataFrame) -> dict:
 master_weather_df = spark.sql("SELECT * FROM LH_Silver.weather_silverdata_ny")
 weather_pdf = master_weather_df.toPandas()
 weather_res = check_weather_quality(weather_pdf)
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
 
 # METADATA ********************
 
